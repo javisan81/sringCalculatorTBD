@@ -11,30 +11,33 @@ public class ProductionTest {
 
 
     @Test
-    public void emptyString(){
+    public void emptyString() {
         assertThat(Add(""), is(0));
     }
 
     @Test
-    public void withOneAsString(){
+    public void withOneAsString() {
         assertThat(Add("1"), is(1));
     }
 
     @Test
-    public void withTwoAsString(){
+    public void withTwoAsString() {
         assertThat(Add("2"), is(2));
     }
 
     @Test
-    public void withOneAndTwoAsString(){
+    public void withOneAndTwoAsString() {
         assertThat(Add("1,2"), is(3));
     }
 
     private int Add(String numbers) {
-        if(numbers.equals(""))
+        if (numbers.equals(""))
             return 0;
-        return Arrays.stream(numbers.split(","))
-                .mapToInt(Integer::parseInt)
-                .sum();
+        String[] splittedNumbers = numbers.split(",");
+        if(splittedNumbers.length==2){
+            return Integer.parseInt(splittedNumbers[0]) + Integer.parseInt(splittedNumbers[1]);
+        }else{
+            return Integer.parseInt(numbers);
+        }
     }
 }
