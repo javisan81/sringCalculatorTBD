@@ -33,9 +33,15 @@ public class ProductionTest {
     public void withOneAndTwoAndThreeAsString() {
         assertThat(Add("1,2,3"), is(6));
     }
+
+    @Test
+    public void withOneAndTwoAndThreeWithNewLineAndCommaAsSeparators() {
+        assertThat(Add("1\n2,3"), is(6));
+    }
+
     private int Add(String numbers) {
         if (numbers.equals(""))
             return 0;
-        return Stream.of(numbers.split(",")).mapToInt(Integer::parseInt).sum();
+        return Stream.of(numbers.split("[,\n]")).mapToInt(Integer::parseInt).sum();
     }
 }
