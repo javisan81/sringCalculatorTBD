@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.stream.Stream;
 
-import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -30,14 +29,13 @@ public class ProductionTest {
         assertThat(Add("1,2"), is(3));
     }
 
+    @Test
+    public void withOneAndTwoAndThreeAsString() {
+        assertThat(Add("1,2,3"), is(6));
+    }
     private int Add(String numbers) {
         if (numbers.equals(""))
             return 0;
-        String[] splittedNumbers = numbers.split(",");
-        if(splittedNumbers.length==2){
-            return Integer.parseInt(splittedNumbers[0]) + Integer.parseInt(splittedNumbers[1]);
-        }else{
-            return Integer.parseInt(numbers);
-        }
+        return Stream.of(numbers.split(",")).mapToInt(Integer::parseInt).sum();
     }
 }
