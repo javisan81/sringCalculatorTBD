@@ -7,7 +7,7 @@ public class Calculator {
         return Stream.of(parseNumbers(numbers)).mapToInt(Integer::parseInt).sum();
     }
 
-    static String[] parseNumbers(String numbers) {
+    private static String[] parseNumbers(String numbers) {
         String delimiter = ",";
         String onlyNumbers = numbers;
         if (numbers.startsWith("//")) {
