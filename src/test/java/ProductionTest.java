@@ -39,9 +39,20 @@ public class ProductionTest {
         assertThat(Add("1\n2,3"), is(6));
     }
 
+    @Test
+    public void semicolonAsDelimiter() {
+        assertThat(Add("//;\n1;2"), is(3));
+    }
+
     private int Add(String numbers) {
         if (numbers.equals(""))
             return 0;
-        return Stream.of(numbers.split("[,\n]")).mapToInt(Integer::parseInt).sum();
+        String delimiter = ",";
+        String onlyNumbers = numbers;
+        if (numbers.startsWith("//")) {
+            delimiter = numbers.substring(2, 3);
+            onlyNumbers = numbers.substring(4);
+        }
+        return Stream.of(onlyNumbers.split("[" + delimiter + "\n]")).mapToInt(Integer::parseInt).sum();
     }
 }
