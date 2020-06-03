@@ -55,17 +55,4 @@ public class ProductionTest {
             assertThat(e.getMessage(), is("negatives not allowed, -1"));
         }
     }
-
-    @Test
-    public void twoAsNegativeNumber() {
-
-        try {
-            Calculator.Add("-2");
-            fail();
-
-        } catch (InvalidParameterException e) {
-            assertThat(e.getMessage(), is("negatives not allowed, -2"));
-        }
-    }
-
 }
