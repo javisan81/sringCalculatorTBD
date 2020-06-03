@@ -1,7 +1,10 @@
 import org.junit.jupiter.api.Test;
 
+import java.security.InvalidParameterException;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class ProductionTest {
@@ -39,6 +42,30 @@ public class ProductionTest {
     @Test
     public void semicolonAsDelimiter() {
         assertThat(Calculator.Add("//;\n1;2"), is(3));
+    }
+
+    @Test
+    public void oneNegativeNumber() {
+
+        try {
+            Calculator.Add("-1");
+            fail();
+
+        } catch (InvalidParameterException e) {
+            assertThat(e.getMessage(), is("negatives not allowed, -1"));
+        }
+    }
+
+    @Test
+    public void twoAsNegativeNumber() {
+
+        try {
+            Calculator.Add("-2");
+            fail();
+
+        } catch (InvalidParameterException e) {
+            assertThat(e.getMessage(), is("negatives not allowed, -2"));
+        }
     }
 
 }
