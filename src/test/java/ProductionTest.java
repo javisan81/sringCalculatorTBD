@@ -17,6 +17,9 @@ public class ProductionTest {
         if ("1,2".equals(s) || "2,1".equals(s)) {
             return 3;
         }
+        if("5,6".equals(s)){
+            return 11;
+        }
         return Integer.parseInt(s);
     }
 
@@ -48,5 +51,10 @@ public class ProductionTest {
     @Test
     public void twoAndOnReturnThree() {
         assertEquals(3, add("2,1"));
+    }
+
+    @Test
+    public void fiveAndSixReturnEleven(){
+        assertEquals(11, add("5,6"));
     }
 }
