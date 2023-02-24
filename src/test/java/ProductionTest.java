@@ -18,7 +18,11 @@ public class ProductionTest {
             return Integer.parseInt(s);
         }
         String[] numbers = s.split(",");
-        return Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+        int result = 0;
+        for(String n : numbers) {
+            result += Integer.parseInt(n);
+        }
+        return result;
     }
 
     @Test
@@ -64,5 +68,10 @@ public class ProductionTest {
     @Test
     public void fiveHundred(){
         assertEquals(500, add("500"));
+    }
+
+    @Test
+    public void oneTwoAndThree(){
+        assertEquals(6, add("1,2,3"));
     }
 }
