@@ -14,7 +14,7 @@ public class ProductionTest {
         if (s.equals("")) {
             return 0;
         }
-        if (s.length() <= 2) {
+        if (!s.contains(",")) {
             return Integer.parseInt(s);
         }
         String[] numbers = s.split(",");
@@ -59,5 +59,10 @@ public class ProductionTest {
     @Test
     public void fiftyFive(){
         assertEquals(55, add("55"));
+    }
+
+    @Test
+    public void fiveHundred(){
+        assertEquals(500, add("500"));
     }
 }
