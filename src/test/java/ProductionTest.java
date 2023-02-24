@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductionTest {
     private int add(String s) {
+        if(s == null) throw new InvalidParameterException();
         if(s.equals("")){
             return 0;
         }
@@ -28,6 +29,11 @@ public class ProductionTest {
    @Test
    public void threeNumberString() {
         assertEquals(3, add("3"));
+   }
+
+   @Test
+    public void nullString() {
+        assertThrows(InvalidParameterException.class, () -> add(null));
    }
 
 
