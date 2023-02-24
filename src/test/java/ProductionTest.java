@@ -12,10 +12,7 @@ public class ProductionTest {
         if(s.equals("")){
             return 0;
         }
-        if(s.equals("3")) {
-            return 3;
-        }
-        return 2;
+        return Integer.parseInt(s);
     }
 
     @Test
