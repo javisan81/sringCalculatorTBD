@@ -1,4 +1,4 @@
-# stringCalculatorJavi
+# stringCalculator
 String calculator kata implemented in java:
 
 1) Create a simple String calculator with a method int Add(string numbers)
