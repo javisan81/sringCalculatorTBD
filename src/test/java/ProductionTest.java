@@ -7,20 +7,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ProductionTest {
 
-    private int add(String s) {
-        if (s == null) {
+    private int add(String numbersInput) {
+        if (numbersInput == null) {
             throw new InvalidParameterException();
         }
-        if (s.equals("")) {
+        if (numbersInput.equals("")) {
             return 0;
         }
-        if (!s.contains(",")) {
-            return Integer.parseInt(s);
+        if (!numbersInput.contains(",")) {
+            return Integer.parseInt(numbersInput);
         }
-        String[] numbers = s.split(",");
+        String[] numbers = numbersInput.split(",");
         int result = 0;
-        for(String n : numbers) {
-            result += Integer.parseInt(n);
+        for(String number : numbers) {
+            result += Integer.parseInt(number);
         }
         return result;
     }
