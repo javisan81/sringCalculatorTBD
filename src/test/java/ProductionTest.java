@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.security.InvalidParameterException;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -18,11 +19,9 @@ public class ProductionTest {
             return Integer.parseInt(numbersInput);
         }
         String[] numbers = numbersInput.split(",");
-        int result = 0;
-        for(String number : numbers) {
-            result += Integer.parseInt(number);
-        }
-        return result;
+        return Stream.of(numbers)
+            .mapToInt(Integer::parseInt)
+            .sum();
     }
 
     @Test
