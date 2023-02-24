@@ -12,6 +12,9 @@ public class ProductionTest {
         if(s.equals("")){
             return 0;
         }
+        if(s.equals("3")) {
+            return 3;
+        }
         return 2;
     }
 
@@ -23,6 +26,11 @@ public class ProductionTest {
    @Test
     public void oneNumberString(){
         assertEquals(2, add("2"));
+   }
+
+   @Test
+   public void threeNumberString() {
+        assertEquals(3, add("3"));
    }
 
 
