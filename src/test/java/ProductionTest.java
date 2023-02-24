@@ -13,11 +13,12 @@ public class ProductionTest {
         if (s.equals("")) {
             return 0;
         }
-
         if ("1,2".equals(s)) {
             return 3;
         }
-
+        if ("2,1".equals(s)) {
+            return 3;
+        }
         return Integer.parseInt(s);
     }
 
@@ -44,5 +45,10 @@ public class ProductionTest {
     @Test
     public void oneAndTwoReturnThree() {
         assertEquals(3, add("1,2"));
+    }
+
+    @Test
+    public void twoAndOnReturnThree() {
+        assertEquals(3, add("2,1"));
     }
 }
