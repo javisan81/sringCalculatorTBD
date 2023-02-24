@@ -14,7 +14,7 @@ public class ProductionTest {
         if (s.equals("")) {
             return 0;
         }
-        if (s.length() == 1) {
+        if (s.length() <= 2) {
             return Integer.parseInt(s);
         }
         String[] numbers = s.split(",");
@@ -54,5 +54,10 @@ public class ProductionTest {
     @Test
     public void fiveAndSixReturnEleven(){
         assertEquals(11, add("5,6"));
+    }
+
+    @Test
+    public void fiftyFive(){
+        assertEquals(55, add("55"));
     }
 }
