@@ -47,7 +47,7 @@ public class ProductionTest {
     }
 
     @Test
-    public void twoAndOnReturnThree() {
+    public void twoAndOneReturnThree() {
         assertEquals(3, add("2,1"));
     }
 
