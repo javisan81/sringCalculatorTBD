@@ -14,13 +14,11 @@ public class ProductionTest {
         if (s.equals("")) {
             return 0;
         }
-        if ("1,2".equals(s) || "2,1".equals(s)) {
-            return 3;
+        if (s.length() == 1) {
+            return Integer.parseInt(s);
         }
-        if("5,6".equals(s)){
-            return 11;
-        }
-        return Integer.parseInt(s);
+        String[] numbers = s.split(",");
+        return Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
     }
 
     @Test
