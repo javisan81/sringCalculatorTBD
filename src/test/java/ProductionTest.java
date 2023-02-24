@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ProductionTest {
+
     private int add(String s) {
         if (s == null) {
             throw new InvalidParameterException();
@@ -13,10 +14,7 @@ public class ProductionTest {
         if (s.equals("")) {
             return 0;
         }
-        if ("1,2".equals(s)) {
-            return 3;
-        }
-        if ("2,1".equals(s)) {
+        if ("1,2".equals(s) || "2,1".equals(s)) {
             return 3;
         }
         return Integer.parseInt(s);
