@@ -4,14 +4,18 @@ import java.security.InvalidParameterException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ProductionTest {
+    private int add(String s) {
+        return 0;
+    }
 
     @Test
-    public void stupidTest() {
-        assertTrue(true);
+    public void emptyString(){
+        assertEquals(0, add(""));
     }
+
+
 }
